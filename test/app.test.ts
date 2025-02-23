@@ -1,4 +1,3 @@
-// test/app.test.ts (ts)
 import request from "supertest";
 import { app } from "../index";
 import { Pool } from "pg";
