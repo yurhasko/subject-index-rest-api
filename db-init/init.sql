@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS index_entries (
+  id SERIAL PRIMARY KEY,
+  word TEXT NOT NULL,
+  pages INT[] NOT NULL
+);
