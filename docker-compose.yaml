@@ -7,7 +7,7 @@ services:
       POSTGRES_DB: book_index
       POSTGRES_PASSWORD: password
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
       - ./db-init:/docker-entrypoint-initdb.d
@@ -27,6 +27,17 @@ services:
       PGDATABASE: book_index
       PGPASSWORD: password
       PGPORT: 5432
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: frontend-client
+    environment:
+      VITE_API_BASE: http://localhost:3000
+    ports:
+      - "4173:4173"
+    depends_on:
+      - app
 
 volumes:
   db-data:
